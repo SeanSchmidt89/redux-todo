@@ -11,9 +11,14 @@ export const todoSlice = createSlice({
     addTodos: (state, action) => {
       state.todos.push(action.payload);
     },
+    deleteTodo: (state, action) => {
+      let id = action.payload;
+      let filteredTodos = state.todos.filter((item) => item.id !== id);
+      state.todos = filteredTodos;
+    },
   },
 });
 
-export const { addTodos } = todoSlice.actions;
+export const { addTodos, deleteTodo } = todoSlice.actions;
 
 export default todoSlice.reducer;
