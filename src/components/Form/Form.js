@@ -16,6 +16,7 @@ const Form = () => {
     let todo = {
       id: Math.random() * 10000,
       title: inputText,
+      completed: false,
     };
     dispatch(addTodos(todo));
     SetInputText("");
