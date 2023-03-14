@@ -1,0 +1,26 @@
+.todo {
+    width: 230px;
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border: 1px solid red;
+    border-radius: 35px;
+}
+
+.todo-data {
+    margin: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.todo-btns {
+    width: 180px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+}
