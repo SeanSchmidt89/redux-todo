@@ -5,6 +5,7 @@ import "./Form.css";
 
 const Form = () => {
   const [inputText, SetInputText] = useState("");
+  const [error, SetError] = useState(false);
   const dispatch = useDispatch();
 
   const textHandler = (e) => {
@@ -13,6 +14,10 @@ const Form = () => {
 
   const formHandler = (e) => {
     e.preventDefault();
+    if (inputText.length === 0) {
+      SetError(true);
+      return;
+    }
     let todo = {
       id: Math.random() * 10000,
       title: inputText,
@@ -20,6 +25,7 @@ const Form = () => {
     };
     dispatch(addTodos(todo));
     SetInputText("");
+    SetError(false);
   };
   return (
     <div>
@@ -31,6 +37,7 @@ const Form = () => {
         />
         <button type="submit">Add</button>
       </form>
+      {error && <p>Please enter a todo</p>}
     </div>
   );
 };

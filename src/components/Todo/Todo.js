@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { deleteTodo, completeTodo } from "../../store/todoSlice";
+import { deleteTodo, completeTodo, updateTodo } from "../../store/todoSlice";
 import { useDispatch } from "react-redux";
 import "./Todo.css";
 
 const Todo = ({ item }) => {
   const dispatch = useDispatch();
   const [update, setUpdate] = useState(false);
-  const [updateText, setUpdateText] = useState("");
+  const [updateText, setUpdateText] = useState(item.title);
   const deleteHanlder = (e) => {
     dispatch(deleteTodo(item.id));
   };
@@ -25,6 +25,7 @@ const Todo = ({ item }) => {
 
   const formHandler = (e) => {
     e.preventDefault();
+    dispatch(updateTodo({ todoId: item.id, title: updateText }));
     setUpdateText("");
     setUpdate(!update);
   };
