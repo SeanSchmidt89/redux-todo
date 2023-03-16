@@ -27,3 +27,8 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.App h1 {
+  margin: 4rem;
+  text-align: center;
+}

@@ -4,40 +4,52 @@ import { addTodos } from "../../store/todoSlice";
 import "./Form.css";
 
 const Form = () => {
-  const [inputText, SetInputText] = useState("");
-  const [error, SetError] = useState(false);
+  const [inputText, setInputText] = useState("");
+  const [error, setError] = useState(false);
+  const [priority, setPriority] = useState("Medium");
   const dispatch = useDispatch();
 
   const textHandler = (e) => {
-    SetInputText(e.target.value);
+    setInputText(e.target.value);
   };
 
   const formHandler = (e) => {
     e.preventDefault();
     if (inputText.length === 0) {
-      SetError(true);
+      setError(true);
       return;
     }
     let todo = {
       id: Math.random() * 10000,
       title: inputText,
       completed: false,
+      priority: priority,
     };
     dispatch(addTodos(todo));
-    SetInputText("");
-    SetError(false);
+    setInputText("");
+    setError(false);
   };
+
+  const selectHandler = (e) => {
+    setPriority(e.target.value);
+  };
+
   return (
-    <div>
+    <div className="form">
       <form onSubmit={formHandler}>
         <input
           onChange={textHandler}
           value={inputText}
           placeholder="add todo"
         />
+        <select onChange={selectHandler}>
+          <option>High</option>
+          <option selected>Medium</option>
+          <option>Low</option>
+        </select>
         <button type="submit">Add</button>
       </form>
-      {error && <p>Please enter a todo</p>}
+      {error && <p className="error">Please enter a todo</p>}
     </div>
   );
 };

@@ -1,0 +1,44 @@
+.form {
+  position: relative;
+  margin: auto;
+  width: 400px;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form form input {
+  width: 200px;
+  height: 2.1rem;
+  padding: 0.3rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid black;
+  outline: none;
+}
+
+.form form select {
+  height: 2.1rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.form form button {
+  height: 2.1rem;
+  font-size: 0.9rem;
+  width: 70px;
+  border-radius: 5px;
+  outline: none;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.error {
+  position: absolute;
+  top: 6.3rem;
+  font: 1rem;
+  font-weight: 500;
+  color: red;
+}
