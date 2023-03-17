@@ -36,10 +36,23 @@ export const todoSlice = createSlice({
       });
       state.todos = updatedTodos;
     },
+    sortList: (state, action) => {
+      console.log(action.payload);
+      // let priority = action.payload;
+      // add priority number to todo
+
+
+
+      // let sortedList = state.todos.sort((a, b) => {
+      //   if (priority === "High") {
+      //     a.priority - b.priority
+      //   }
+      // });
+    },
   },
 });
 
-export const { addTodos, deleteTodo, completeTodo, updateTodo } =
+export const { addTodos, deleteTodo, completeTodo, updateTodo, sortList } =
   todoSlice.actions;
 
 export default todoSlice.reducer;

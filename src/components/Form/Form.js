@@ -42,9 +42,9 @@ const Form = () => {
           value={inputText}
           placeholder="add todo"
         />
-        <select onChange={selectHandler}>
+        <select onChange={selectHandler} defaultValue='Medium'>
           <option>High</option>
-          <option selected>Medium</option>
+          <option>Medium</option>
           <option>Low</option>
         </select>
         <button type="submit">Add</button>

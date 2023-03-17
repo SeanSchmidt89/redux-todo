@@ -1,0 +1,33 @@
+.todoList {
+  margin: auto;
+  width: 100%;
+}
+
+.list-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sort {
+  margin: auto;
+  width: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sort p {
+  margin: 2rem auto;
+  width: 200px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.sort select {
+  height: 24px;
+  width: 85px;
+  text-align: center;
+  border-radius: 5px;
+  outline: none;
+}
