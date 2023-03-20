@@ -38,16 +38,18 @@ export const todoSlice = createSlice({
     },
     sortList: (state, action) => {
       console.log(action.payload);
-      // let priority = action.payload;
-      // add priority number to todo
-
-
-
-      // let sortedList = state.todos.sort((a, b) => {
-      //   if (priority === "High") {
-      //     a.priority - b.priority
-      //   }
-      // });
+      let priority = action.payload;
+      if(priority === '-'){
+        return
+      }
+      let sortedList = state.todos.sort((a, b) => {
+        if (priority === "High") {
+          return b.priorityNum - a.priorityNum;
+        } else {
+          return a.priorityNum - b.priorityNum;
+        }
+      });
+      state.todos = sortedList;
     },
   },
 });

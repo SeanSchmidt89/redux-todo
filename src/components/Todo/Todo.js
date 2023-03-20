@@ -36,7 +36,7 @@ const Todo = ({ item }) => {
         <p> {item.completed ? "Completed" : "Not Completed"}</p>
       </div>
       <div className="todo-btns">
-        <button onClick={deleteHanlder}>delete</button>
+        <button onClick={deleteHanlder}>Delete</button>
         <button onClick={completeHandler}>Complete</button>
         <button onClick={showUpdateHandler}>Update</button>
       </div>

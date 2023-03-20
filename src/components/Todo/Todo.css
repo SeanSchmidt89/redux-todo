@@ -1,11 +1,13 @@
 .todo {
+    margin: 1rem auto;
     width: 230px;
     height: 220px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    border: 1px solid red;
-    border-radius: 35px;
+    background-color: rgb(69, 69, 69);
+    color: white;
+    border-radius: 45px;
 }
 
 .todo-data {
@@ -17,10 +19,19 @@
 }
 
 .todo-btns {
-    width: 180px;
+    width: 200px;
     margin: auto;
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+}
+
+.todo-btns button {
+    margin: 0rem 0.2rem;
+    height: 28px;
+    padding: 0.1rem 0.4rem;
+    border-radius: 7px;
+    background-color: white;
+    color: black;
+    cursor: pointer;
 }

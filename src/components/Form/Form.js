@@ -19,11 +19,18 @@ const Form = () => {
       setError(true);
       return;
     }
+    let priorityNumber = 2;
+    if (priority === "High") {
+      priorityNumber = 3;
+    } else if (priority === "Low") {
+      priorityNumber = 1;
+    }
     let todo = {
       id: Math.random() * 10000,
       title: inputText,
       completed: false,
       priority: priority,
+      priorityNum: priorityNumber,
     };
     dispatch(addTodos(todo));
     setInputText("");
@@ -42,7 +49,7 @@ const Form = () => {
           value={inputText}
           placeholder="add todo"
         />
-        <select onChange={selectHandler} defaultValue='Medium'>
+        <select onChange={selectHandler} defaultValue="Medium">
           <option>High</option>
           <option>Medium</option>
           <option>Low</option>
