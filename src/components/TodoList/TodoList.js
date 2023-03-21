@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Todo from "../Todo/Todo";
 import { useSelector, useDispatch } from "react-redux";
-import { sortList } from "../../store/todoSlice";
+import { sortList, saveList } from "../../store/todoSlice";
 import "./TodoList.css";
 
 const TodoList = () => {
@@ -22,8 +22,10 @@ const TodoList = () => {
     setInputText(e.target.value);
   };
 
-  //need handler for button on save button
-  //then need to save list to slice
+  const saveHandler = (e) => {
+    dispatch(saveList(inputText));
+    setInputText("");
+  };
 
   return (
     <div className="todoList">
@@ -49,7 +51,7 @@ const TodoList = () => {
                 value={inputText}
                 placeholder="List Name"
               />
-              <button>Save</button>
+              <button onClick={saveHandler}>Save</button>
             </div>
           )}
         </div>

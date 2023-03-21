@@ -1,6 +1,7 @@
 .form {
   position: relative;
   margin: auto;
+  margin-bottom: 4rem;
   width: 400px;
   height: 150px;
   display: flex;

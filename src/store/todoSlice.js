@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   todos: [],
+  saved: [],
 };
 
 export const todoSlice = createSlice({
@@ -39,8 +40,8 @@ export const todoSlice = createSlice({
     sortList: (state, action) => {
       console.log(action.payload);
       let priority = action.payload;
-      if(priority === '-'){
-        return
+      if (priority === "-") {
+        return;
       }
       let sortedList = state.todos.sort((a, b) => {
         if (priority === "High") {
@@ -51,10 +52,20 @@ export const todoSlice = createSlice({
       });
       state.todos = sortedList;
     },
+    saveList: (state, action) => {
+      let newSave = { name: action.payload, todos: state.todos };
+      state.saved.push(newSave);
+    },
   },
 });
 
-export const { addTodos, deleteTodo, completeTodo, updateTodo, sortList } =
-  todoSlice.actions;
+export const {
+  addTodos,
+  deleteTodo,
+  completeTodo,
+  updateTodo,
+  sortList,
+  saveList,
+} = todoSlice.actions;
 
 export default todoSlice.reducer;
