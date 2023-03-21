@@ -4,7 +4,7 @@
 }
 
 .list-container {
-  margin: auto;
+  margin: 1rem auto;
   width: 80%;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -14,11 +14,14 @@
   margin: auto;
   width: 200px;
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
 }
 
 .sort p {
+  position: absolute;
+  right: 12rem;
   margin: 2rem auto;
   width: 200px;
   text-align: center;
@@ -27,9 +30,49 @@
 }
 
 .sort select {
+  position: absolute;
+  top: -0.6rem;
+  right: 8.7rem;
   height: 24px;
   width: 85px;
   text-align: center;
   border-radius: 5px;
   outline: none;
+}
+
+.save-todo {
+  position: absolute;
+  left: 8rem;
+  top: -0.7rem;
+}
+
+.save-todo button {
+  width: 85px;
+  height: 25px;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+}
+
+.save-input {
+  position: absolute;
+  left: 14.5rem;
+  top: -0.7rem;
+  display: flex;
+}
+
+.save-input input {
+  height: 25px;
+  width: 150px;
+  padding: 0rem 0.4rem;
+  outline: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.save-input button {
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid black;
+  cursor: pointer;
 }
