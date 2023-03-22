@@ -7,7 +7,7 @@ import "./TodoList.css";
 const TodoList = () => {
   const [save, setSave] = useState(false);
   const [inputText, setInputText] = useState("");
-  const todos = useSelector((state) => state.todos.todos);
+  const todos = useSelector((state) => state.todos.todos.todos);
   const dispatch = useDispatch();
 
   const selectHandler = (e) => {

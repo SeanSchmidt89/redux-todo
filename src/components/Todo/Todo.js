@@ -26,7 +26,7 @@ const Todo = ({ item }) => {
   const formHandler = (e) => {
     e.preventDefault();
     dispatch(updateTodo({ todoId: item.id, title: updateText }));
-    setUpdateText("");
+    setUpdateText(updateText);
     setUpdate(!update);
   };
   return (
@@ -41,10 +41,12 @@ const Todo = ({ item }) => {
         <button onClick={showUpdateHandler}>Update</button>
       </div>
       {update && (
-        <form onSubmit={formHandler}>
-          <input onChange={inputHandler} value={updateText} />
-          <button type="submit">Update</button>
-        </form>
+        <div className="update">
+          <form onSubmit={formHandler}>
+            <input onChange={inputHandler} value={updateText} />
+            <button type="submit">Update</button>
+          </form>
+        </div>
       )}
     </div>
   );

@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  todos: [],
+  todos: { name: "default", todos: [] },
   saved: [],
 };
 
@@ -10,32 +10,32 @@ export const todoSlice = createSlice({
   initialState: initialState,
   reducers: {
     addTodos: (state, action) => {
-      state.todos.push(action.payload);
+      state.todos.todos.push(action.payload);
     },
     deleteTodo: (state, action) => {
       let id = action.payload;
-      let filteredTodos = state.todos.filter((item) => item.id !== id);
-      state.todos = filteredTodos;
+      let filteredTodos = state.todos.todos.filter((item) => item.id !== id);
+      state.todos.todos = filteredTodos;
     },
     completeTodo: (state, action) => {
       let id = action.payload;
-      let completedTodos = state.todos.map((item) => {
+      let completedTodos = state.todos.todos.map((item) => {
         if (item.id === id) {
           return { ...item, completed: !item.completed };
         }
         return item;
       });
-      state.todos = completedTodos;
+      state.todos.todos = completedTodos;
     },
     updateTodo: (state, action) => {
       let id = action.payload.todoId;
-      let updatedTodos = state.todos.map((item) => {
+      let updatedTodos = state.todos.todos.map((item) => {
         if (item.id === id) {
           return { ...item, title: action.payload.title };
         }
         return item;
       });
-      state.todos = updatedTodos;
+      state.todos.todos = updatedTodos;
     },
     sortList: (state, action) => {
       console.log(action.payload);
@@ -43,19 +43,21 @@ export const todoSlice = createSlice({
       if (priority === "-") {
         return;
       }
-      let sortedList = state.todos.sort((a, b) => {
+      let sortedList = state.todos.todos.sort((a, b) => {
         if (priority === "High") {
           return b.priorityNum - a.priorityNum;
         } else {
           return a.priorityNum - b.priorityNum;
         }
       });
-      state.todos = sortedList;
+      state.todos.todos = sortedList;
     },
     saveList: (state, action) => {
-      let newSave = { name: action.payload, todos: state.todos };
+      let newSave = { name: action.payload, todos: state.todos.todos };
       state.saved.push(newSave);
+      state.todos.todos = [];
     },
+    //need to add saved lists on website after you save them
   },
 });
 
