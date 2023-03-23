@@ -1,0 +1,9 @@
+.save-item {
+    margin: 0.8rem;
+    width: 120px;
+    height: 35px;
+    color: white;
+    background-color: black;
+    border-radius: 16px;
+    cursor: pointer;
+}

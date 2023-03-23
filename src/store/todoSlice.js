@@ -57,7 +57,15 @@ export const todoSlice = createSlice({
       state.saved.push(newSave);
       state.todos.todos = [];
     },
-    //need to add saved lists on website after you save them
+    clickSaveItem: (state, action) => {
+      let name = action.payload;
+      let saved = state.saved.filter((item) => item.name !== name);
+      // state.todos.todos = saved.todos
+      console.log(saved)
+      state.saved = []
+    },
+    //need to find saved list and put it into default list
+    //filter is not working and not finding the correct list
   },
 });
 
@@ -68,6 +76,7 @@ export const {
   updateTodo,
   sortList,
   saveList,
+  clickSaveItem,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;

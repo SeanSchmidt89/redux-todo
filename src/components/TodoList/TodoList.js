@@ -25,6 +25,7 @@ const TodoList = () => {
   const saveHandler = (e) => {
     dispatch(saveList(inputText));
     setInputText("");
+    setSave(!save);
   };
 
   return (
