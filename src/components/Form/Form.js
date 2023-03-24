@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { addTodos } from "../../store/todoSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { addTodos, resetDefaultList } from "../../store/todoSlice";
 import "./Form.css";
 
 const Form = () => {
   const [inputText, setInputText] = useState("");
   const [error, setError] = useState(false);
   const [priority, setPriority] = useState("Medium");
+  const todos = useSelector((state) => state.todos.todos.todos);
   const dispatch = useDispatch();
 
   const textHandler = (e) => {
@@ -41,6 +42,10 @@ const Form = () => {
     setPriority(e.target.value);
   };
 
+  const resetHandler = (e) => {
+    dispatch(resetDefaultList())
+  }
+
   return (
     <div className="form">
       <form onSubmit={formHandler}>
@@ -56,6 +61,7 @@ const Form = () => {
         </select>
         <button type="submit">Add</button>
       </form>
+      {todos.length > 0 && <button className="reset-btn" onClick={resetHandler}>Reset List</button>}
       {error && <p className="error">Please enter a todo</p>}
     </div>
   );

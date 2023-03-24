@@ -59,13 +59,15 @@ export const todoSlice = createSlice({
     },
     clickSaveItem: (state, action) => {
       let name = action.payload;
-      let saved = state.saved.filter((item) => item.name !== name);
-      // state.todos.todos = saved.todos
-      console.log(saved)
-      state.saved = []
+      let saved = state.saved.find((item) => item.name === name);
+      state.todos.todos = saved.todos;
+      // problem, when you click a saved list and update todos, it updates them in the
+      //default list and not the saved list
     },
-    //need to find saved list and put it into default list
-    //filter is not working and not finding the correct list
+    resetDefaultList: (state) => {
+      state.todos.todos = []
+    }
+    
   },
 });
 
@@ -77,6 +79,7 @@ export const {
   sortList,
   saveList,
   clickSaveItem,
+  resetDefaultList,
 } = todoSlice.actions;
 
 export default todoSlice.reducer;
