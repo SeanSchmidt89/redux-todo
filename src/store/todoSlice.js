@@ -61,13 +61,17 @@ export const todoSlice = createSlice({
       let name = action.payload;
       let saved = state.saved.find((item) => item.name === name);
       state.todos.todos = saved.todos;
-      // problem, when you click a saved list and update todos, it updates them in the
-      //default list and not the saved list
     },
     resetDefaultList: (state) => {
-      state.todos.todos = []
+      state.todos.todos = [];
+    },
+    deleteList: (state, action) => {
+      //let listName = action.payload
+      //make button on form apear when listItem is clicked
+      //make click handler and send item.name to this function in
+      //action.payload
+      //delete this list from default list and savedList
     }
-    
   },
 });
 
