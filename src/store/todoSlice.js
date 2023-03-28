@@ -66,7 +66,7 @@ export const todoSlice = createSlice({
       state.todos.todos = [];
     },
     deleteList: (state, action) => {
-      //let listName = action.payload
+      // let listName = action.payload
       //make button on form apear when listItem is clicked
       //make click handler and send item.name to this function in
       //action.payload

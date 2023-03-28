@@ -61,7 +61,7 @@ const Form = () => {
         </select>
         <button type="submit">Add</button>
       </form>
-      {todos.length > 0 && <button className="reset-btn" onClick={resetHandler}>Reset List</button>}
+      {todos.length > 0 && <button className="reset-btn" onClick={resetHandler}>New List</button>}
       {error && <p className="error">Please enter a todo</p>}
     </div>
   );
