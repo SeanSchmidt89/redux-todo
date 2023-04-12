@@ -10,6 +10,8 @@ const SaveItem = ({ item }) => {
   const clickHandler = (e) => {
     dispatch(clickSaveItem(item.name));
     setDeleteBtn(true);
+
+    //
     // get his out of state and make a reducer so you can delete it
     // and pull the valuse of deleteBtn from useSelector and dislpay it
     // on todoList next to save btn
